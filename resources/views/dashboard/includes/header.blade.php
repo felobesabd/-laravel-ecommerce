@@ -37,18 +37,14 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav float-right">
+                <ul class="nav navbar-nav float-right align-items-center">
+
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="mr-1">
-                                Hello
                                 <span class="user-name text-bold-700">
-                                    {{ auth('admin')->user()->name }}
+                                    Hello {{ auth('admin')->user()->name }}
                                 </span>
-                            </span>
-                            <span class="avatar avatar-online">
-                                <img  style="height: 35px;" src="" alt="avatar">
-                                <i></i>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -61,6 +57,25 @@
                                 <i class="ft-power"></i>
                                 Logout
                             </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown dropdown-user nav-item">
+                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                            <span class="user-name text-bold-700">
+                               {{ LaravelLocalization::getCurrentLocale() }}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <ul>
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </li>
 
