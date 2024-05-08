@@ -29,10 +29,13 @@ Route::group(
             Route::put('shipping-methods/{id}', 'SettingController@updateShippingMethods')
                 ->name('update.shipping.methods');
         });
+
+        Route::get('/logout', 'LoginController@logout')->name('admin.logout');
     });
 
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'guest:admin', 'prefix' => 'admin'], function () {
         Route::get('/login', 'LoginController@login')->name('admin.login');
+
         Route::post('/storeLogin', 'LoginController@storeLogin')->name('admin.store.login');
     });
 });
