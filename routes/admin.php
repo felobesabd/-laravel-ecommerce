@@ -44,7 +44,7 @@ Route::group(
             Route::post('store', 'MainCategoriesController@store')->name('admin.maincategories.store');
             Route::get('edit/{id}', 'MainCategoriesController@edit')->name('admin.maincategories.edit');
             Route::post('update/{id}', 'MainCategoriesController@update')->name('admin.maincategories.update');
-            Route::get('delete/{id}', 'MainCategoriesController@destroy')->name('admin.maincategories.delete');
+            Route::get('delete/{id}', 'MainCategoriesController@delete')->name('admin.maincategories.delete');
         });
 
         ################################## End categories    #######################################

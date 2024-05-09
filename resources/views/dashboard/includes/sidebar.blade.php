@@ -36,10 +36,14 @@
 
                 <ul class="menu-content">
                     <li class="active">
-                        <a class="menu-item" href="" data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}</a>
+                        <a class="menu-item" href="{{route('admin.maincategories')}}"
+                           data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}
+                        </a>
                     </li>
                     <li>
-                        <a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('dashboard.add_cat')}}</a>
+                        <a class="menu-item" href="{{route('admin.maincategories.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('dashboard.add_cat')}}
+                        </a>
                     </li>
                 </ul>
             </li>
