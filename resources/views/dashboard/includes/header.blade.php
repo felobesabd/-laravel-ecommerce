@@ -48,7 +48,7 @@
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="{{route('edit.profile')}}">
                                 <i class="ft-user"></i>
                                 Update profile
                             </a>

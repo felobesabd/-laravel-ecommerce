@@ -31,4 +31,17 @@ return [
     'add_cat' => 'Add category',
     'add_sub_cat' => 'Add sub category',
     'sub_cat' => 'sub category',
+    'name' => 'Name',
+    'status' => 'Status',
+    'name_link' => 'Name Link',
+    'photo' => 'Photo',
+    'actions' => 'Actions',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'active' => 'Active',
+    'not_active' => 'Not active',
+    'cat' => [
+        'all_cat' => 'All category',
+        'photo_cat' => 'Photo cat',
+    ]
 ];
