@@ -31,7 +31,7 @@
                 <a href="">
                     <i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('dashboard.main_cat')}}</span>
-                    <span class="badge badge badge-danger badge-pill float-right mr-2">10</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::parent()->count()}}</span>
                 </a>
 
                 <ul class="menu-content">
@@ -52,14 +52,14 @@
                 <a href="">
                     <i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('dashboard.sub_cat')}}</span>
-                    <span class="badge badge badge-danger badge-pill float-right mr-2">400</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::child()->count()}}</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active">
-                        <a class="menu-item" href="" data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}</a>
+                        <a class="menu-item" href="{{route('admin.subcategories')}}" data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('dashboard.add_sub_cat')}}</a>
+                        <a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.add_sub_cat')}}</a>
                     </li>
                 </ul>
             </li>
