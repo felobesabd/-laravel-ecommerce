@@ -6,3 +6,11 @@ function getFolder()
 }
 
 define('PAGINATION_COUNT', 10);
+
+function uploadImage($folder, $image)
+{
+    $image->store('/', $folder);
+    $fileName = $image->hashName();
+    $path = 'images/'. $folder . '/' . $fileName;
+    return $fileName;
+}

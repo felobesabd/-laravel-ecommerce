@@ -43,5 +43,12 @@ return [
     'cat' => [
         'all_cat' => 'All category',
         'photo_cat' => 'Photo cat',
+    ],
+    'brand' => [
+        'brands' => 'Brands',
+        'main_brands' => 'Main brands',
+        'add_brand' => 'Add brand',
+        'all_brands' => 'All brands',
+        'photo_brand' => 'Photo brand',
     ]
 ];

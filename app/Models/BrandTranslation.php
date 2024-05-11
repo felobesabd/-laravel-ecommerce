@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Brand_translation extends Model
+class BrandTranslation extends Model
 {
     /**
      * The attributes that are mass assignable.

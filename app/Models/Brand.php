@@ -49,4 +49,9 @@ class Brand extends Model
     {
         return  $this->is_active  == 0 ?  'غير مفعل'   : 'مفعل';
     }
+
+    public function getPhotoAttribute($val)
+    {
+        return ($val !== null) ? asset('assets/images/brand/'.$val) : '';
+    }
 }

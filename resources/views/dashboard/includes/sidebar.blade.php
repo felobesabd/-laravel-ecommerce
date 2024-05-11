@@ -66,15 +66,15 @@
 
             <li class="nav-item">
                 <a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('dashboard.brand.brands')}}</span>
                     <span class="badge badge badge-success badge-pill float-right mr-2">12</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active">
-                        <a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                        <a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة متجر  </a>
+                        <a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.brand.add_brand')}}</a>
                     </li>
                 </ul>
             </li>
