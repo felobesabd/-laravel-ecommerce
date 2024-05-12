@@ -10,13 +10,13 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item">
+                                    <a href="">{{__('dashboard.main')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.maincategories')}}"> الاقسام
-                                        الرئيسية </a>
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('admin.maincategories')}}">{{__('dashboard.main_cat')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active"> أضافه قسم رئيسي
-                                </li>
+                                <li class="breadcrumb-item active">{{__('dashboard.add_cat')}}</li>
                             </ol>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> أضافة قسم رئيسي </h4>
+                                    <h4 class="card-title" id="basic-layout-form">{{__('dashboard.add_cat')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -52,28 +52,16 @@
                                             @csrf
 
 
-                                            <div class="form-group">
-                                                <label> صوره القسم </label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="photo">
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                                @error('photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-
                                             <div class="form-body">
-
                                                 <h4 class="form-section">
                                                     <i class="ft-home"></i>
-                                                    بيانات القسم
+                                                    category data
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">
-                                                                اسم القسم
+                                                                name category
                                                             </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
@@ -89,7 +77,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">
-                                                                اسم بالرابط
+                                                                name links
                                                             </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
@@ -106,14 +94,15 @@
                                                 <div class="row hidden" id="cats_list" >
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> اختر القسم الرئيسي
-                                                            </label>
-                                                            <select name="parent_id" class="select2 form-control">
-                                                                <optgroup label="من فضلك أختر القسم ">
+                                                            <label for="projectinput1">choose main category</label>
+                                                            <select name="parent_id" class="select2 form-control" style="width: 100%">
+                                                                <optgroup>
+                                                                    <option value="">Choose</option>
                                                                     @if($categories && $categories -> count() > 0)
                                                                         @foreach($categories as $category)
                                                                             <option
-                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
+                                                                                value="{{$category -> id }}">{{$category -> name}}
+                                                                            </option>
                                                                         @endforeach
                                                                     @endif
                                                                 </optgroup>
@@ -121,7 +110,6 @@
                                                             @error('parent_id')
                                                             <span class="text-danger"> {{$message}}</span>
                                                             @enderror
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +123,7 @@
                                                                    class="switchery" data-color="success"
                                                                    checked/>
                                                             <label for="switcheryColor4" class="card-title ml-1">
-                                                                الحالة
+                                                                status
                                                             </label>
 
                                                             @error("is_active")
@@ -144,48 +132,43 @@
                                                         </div>
                                                     </div>
 
-{{--                                                    <div class="col-md-3">--}}
-{{--                                                        <div class="form-group mt-1">--}}
-{{--                                                            <input type="radio"--}}
-{{--                                                                   name="type"--}}
-{{--                                                                   value="1"--}}
-{{--                                                                   checked--}}
-{{--                                                                   class="switchery"--}}
-{{--                                                                   data-color="success"--}}
-{{--                                                            />--}}
+                                                    <div class="col-md-3">
+                                                        <div class="form-group mt-1">
+                                                            <input type="radio"
+                                                                   name="type"
+                                                                   value="1"
+                                                                   checked
+                                                                   class="switchery"
+                                                                   data-color="success"
+                                                            />
 
-{{--                                                            <label class="card-title ml-1">--}}
-{{--                                                                قسم رئيسي--}}
-{{--                                                            </label>--}}
+                                                            <label class="card-title ml-1">main category</label>
+                                                        </div>
+                                                    </div>
 
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
+                                                    <div class="col-md-3">
+                                                        <div class="form-group mt-1">
+                                                            <input type="radio"
+                                                                   name="type"
+                                                                   value="2"
+                                                                   class="switchery" data-color="success"
+                                                            />
 
-{{--                                                    <div class="col-md-3">--}}
-{{--                                                        <div class="form-group mt-1">--}}
-{{--                                                            <input type="radio"--}}
-{{--                                                                   name="type"--}}
-{{--                                                                   value="2"--}}
-{{--                                                                   class="switchery" data-color="success"--}}
-{{--                                                            />--}}
-
-{{--                                                            <label class="card-title ml-1">--}}
-{{--                                                                قسم فرعي--}}
-{{--                                                            </label>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                                            <label class="card-title ml-1">sub Category</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1" onclick="history.back();">
                                                     <i class="ft-x"></i>
-                                                    تراجع
+                                                    Back
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="la la-check-square-o"></i>
-                                                    تحديث
+                                                    Create
                                                 </button>
                                             </div>
                                         </form>
@@ -200,4 +183,17 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('script')
+    <script>
+        $('input:radio[name="type"]')
+            .change(function () {
+                if(this.checked && this.value === '2') {
+                    $('#cats_list').removeClass('hidden');
+                } else {
+                    $('#cats_list').addClass('hidden');
+                }
+            })
+    </script>
 @stop

@@ -12,7 +12,7 @@ class MainCategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::parent()->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        $categories = Category::with('_parent')->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
         return view('dashboard.category.index', compact('categories'));
     }
 
@@ -24,7 +24,7 @@ class MainCategoriesController extends Controller
 
     public function store(MainCategoryRequest $request)
     {
-        try {
+
             DB::beginTransaction();
 
             if (!$request->has('is_active')) {
@@ -41,10 +41,6 @@ class MainCategoriesController extends Controller
 
             DB::commit();
              return redirect()->route('admin.maincategories.create')->with(['success' => 'Created successfully']);
-        } catch (\Exception $ex) {
-            DB::rollback();
-            return redirect()->route('admin.maincategories.create')->with(['error' => 'Created failed']);
-        }
     }
 
     public function edit($id)
