@@ -78,6 +78,11 @@ class Product extends Model
         return $this->in_stock == 0 ? 'Not Available' : 'Available';
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
+
     public function brand()
     {
         return $this->belongsTo(Brand::class)->withDefault();
@@ -91,5 +96,15 @@ class Product extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'product_tags');
+    }
+
+    public function attrOptions()
+    {
+        return $this->hasMany(AttrOption::class, 'product_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'product_id');
     }
 }

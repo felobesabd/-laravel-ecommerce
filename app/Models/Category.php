@@ -4,7 +4,11 @@ namespace App\Models;
 
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
+/**
+ * @mixin Builder
+ */
 class Category extends Model
 {
     use Translatable;
@@ -34,5 +38,15 @@ class Category extends Model
     public function _parent()
     {
         return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_categories');
     }
 }

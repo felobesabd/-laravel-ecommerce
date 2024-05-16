@@ -21,8 +21,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';
     public const ADMIN = '/admin';
+    public const VERIFY = '/verify';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -95,6 +96,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
-            ->group(base_path('routes/site.php'));
+            ->group(base_path('routes/front.php'));
     }
 }
