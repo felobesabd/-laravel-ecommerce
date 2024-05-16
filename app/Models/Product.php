@@ -49,6 +49,19 @@ class Product extends Model
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'special_price_start',
+        'special_price_end',
+        'start_date',
+        'end_date',
+        'deleted_at',
+    ];
+
+    /**
      * The attributes that are translatable.
      *
      * @var array
@@ -58,5 +71,25 @@ class Product extends Model
     public function getActive()
     {
         return $this->is_active == 0 ? __('dashboard.not_active') : __('dashboard.active');
+    }
+
+    public function getStock()
+    {
+        return $this->in_stock == 0 ? 'Not Available' : 'Available';
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class)->withDefault();
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'product_categories');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'product_tags');
     }
 }

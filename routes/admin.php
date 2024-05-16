@@ -84,20 +84,26 @@ Route::group(
         ################################## products routes ######################################
         Route::group(['prefix' => 'products'], function () {
             Route::get('/', 'ProductsController@index')->name('admin.products');
-            Route::get('general-information', 'ProductsController@create')->name('admin.products.general.create');
-            Route::post('store-general-information', 'ProductsController@store')->name('admin.products.general.store');
+            Route::get('general-information', 'ProductsController@create')
+                ->name('admin.products.general.create');
+            Route::post('store-general-information', 'ProductsController@store')
+                ->name('admin.products.general.store');
 
             Route::get('price/{id}', 'ProductsController@getPrice')->name('admin.products.price');
             Route::post('price', 'ProductsController@saveProductPrice')->name('admin.products.price.store');
 
-            Route::get('stock/{id}', 'ProductsController@getStock')->name('admin.products.stock');
-            Route::post('stock', 'ProductsController@saveProductStock')->name('admin.products.stock.store');
+            Route::get('stock/{id}', 'ProductsController@getStock')
+                ->name('admin.products.stock');
+            Route::post('stock', 'ProductsController@saveProductStock')
+                ->name('admin.products.stock.store');
 
             Route::get('images/{id}', 'ProductsController@addImages')->name('admin.products.images');
-            Route::post('images', 'ProductsController@saveProductImages')->name('admin.products.images.store');
-            Route::post('images/db', 'ProductsController@saveProductImagesDB')->name('admin.products.images.store.db');
+            Route::post('images', 'ProductsController@saveProductImages')
+                ->name('admin.products.images.store');
+            Route::post('images/db', 'ProductsController@saveProductImagesDB')
+                ->name('admin.products.images.store.db');
         });
-        ################################## end brands    #######################################
+        ################################## products brands    #######################################
     });
 
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'guest:admin', 'prefix' => 'admin'], function () {

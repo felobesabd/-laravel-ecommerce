@@ -31,7 +31,9 @@
                 <a href="">
                     <i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('dashboard.main_cat')}}</span>
-                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::parent()->count()}}</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">
+                        {{\App\Models\Category::parent()->count()}}
+                    </span>
                 </a>
 
                 <ul class="menu-content">
@@ -80,10 +82,14 @@
                 </a>
                 <ul class="menu-content">
                     <li class="active">
-                        <a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce">{{__('dashboard.show_all')}}</a>
+                        <a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce">
+                            {{__('dashboard.show_all')}}
+                        </a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.brand.add_brand')}}</a>
+                        <a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">
+                            {{__('dashboard.brand.add_brand')}}
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -111,14 +117,23 @@
             </li>
 
             <li class="nav-item">
-                <a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
-                    <span
-                        class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
+                <a href="">
+                    <i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">Products</span>
+                    <span class="badge badge badge-danger  badge-pill float-right mr-2">
+                        {{\App\Models\Product::count()}}
+                    </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> تذاكر الطلاب </a>
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.products')}}" data-i18n="nav.dash.ecommerce">
+                            {{__('dashboard.show_all')}}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.products.general.create')}}" data-i18n="nav.dash.crypto">
+                            Add Product
+                        </a>
                     </li>
                 </ul>
             </li>
